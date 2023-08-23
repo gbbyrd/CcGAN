@@ -1,0 +1,134 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cGAN",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {"CUDA_VISIBLE_DEVICES": "0"},
+            "args": [
+                "--root_path", "/home/grayson/Desktop/code/thesis/improved_CcGAN/SteeringAngle/SteeringAngle_64x64/CcGAN-improved",
+                "--data_path", "/home/grayson/Desktop/code/thesis/improved_CcGAN/datasets/SteeringAngle", 
+                "--GAN", "cGAN",
+                "--dim_gan", "128",
+                "--loss_type_gan", "vanilla", 
+                "--seed", "2020", 
+                "--min_label", "-80.0", 
+                "--max_label", "80.0", 
+                "--cGAN_num_classes", "210", 
+                "--max_num_img_per_label", "9999", 
+                "--max_num_img_per_label_after_replica", "0",
+                "--niters_gan", "20000",
+                "--resume_niters_gan", "0", 
+                "--save_niters_freq", "2000", 
+                "--lr_g_gan", "1e-4", 
+                "--lr_d_gan", "1e-4", 
+                "--batch_size_disc", "512", 
+                "--batch_size_gene", "512", 
+                "--num_eval_labels", "2000", 
+                "--nfake_per_label", "50", 
+                "--visualize_fake_images", 
+                "--comp_FID", 
+                "--epoch_FID_CNN", "200", 
+                "--samp_batch_size", "1000", 
+                "--FID_radius", "2", 
+                "--FID_num_centers", "1000"
+                // , 2>&1 | tee output_cGAN_150class.txt
+
+            ]
+        },
+        {
+            "name": "CcGAN Hard",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {"CUDA_VISIBLE_DEVICES": "0"},
+            "args": [
+                "--root_path", "/home/grayson/Desktop/code/thesis/improved_CcGAN/SteeringAngle/SteeringAngle_64x64/CcGAN-improved",
+                "--data_path", "/home/grayson/Desktop/code/thesis/improved_CcGAN/datasets/SteeringAngle", 
+                "--GAN", "CcGAN",
+                "--dim_gan", "128",
+                "--loss_type_gan", "vanilla", 
+                "--seed", "2020", 
+                "--min_label", "-80.0", 
+                "--max_label", "80.0",
+                "--max_num_img_per_label", "9999", 
+                "--max_num_img_per_label_after_replica", "0",
+                "--threshold_type", 
+                "hard", 
+                "--kernel_sigma", 
+                "1.0", 
+                "--kappa", 
+                "-5.0",
+                "--niters_gan", "20000",
+                "--resume_niters_gan", "0", 
+                "--save_niters_freq", "2000", 
+                "--lr_g_gan", "1e-4", 
+                "--lr_d_gan", "1e-4", 
+                "--batch_size_disc", "64", 
+                "--batch_size_gene", "512", 
+                "--num_eval_labels", "2000", 
+                "--nfake_per_label", "50", 
+                "--visualize_fake_images", 
+                "--dim_embed",
+                "128",
+                "--comp_FID",
+                "--samp_batch_size", "1000", 
+                "--FID_radius", "2", 
+                "--FID_num_centers", "1000"
+                // , 2>&1 | tee output_cGAN_150class.txt
+
+            ]
+        },
+        {
+            "name": "CcGAN Soft",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {"CUDA_VISIBLE_DEVICES": "0"},
+            "args": [
+                "--root_path", "/home/grayson/Desktop/code/thesis/improved_CcGAN/SteeringAngle/SteeringAngle_64x64/CcGAN-improved",
+                "--data_path", "/home/grayson/Desktop/code/thesis/improved_CcGAN/datasets/SteeringAngle", 
+                "--GAN", "CcGAN",
+                "--dim_gan", "128",
+                "--loss_type_gan", "vanilla", 
+                "--seed", "2020", 
+                "--min_label", "-80.0", 
+                "--max_label", "80.0",
+                "--max_num_img_per_label", "9999", 
+                "--max_num_img_per_label_after_replica", "0",
+                "--threshold_type", "soft", 
+                "--kernel_sigma", "1.0", 
+                "--kappa", "-5.0",
+                "--niters_gan", "20000",
+                "--resume_niters_gan", "0", 
+                "--save_niters_freq", "2000", 
+                "--lr_g_gan", "1e-4", 
+                "--lr_d_gan", "1e-4", 
+                "--batch_size_disc", "64", 
+                "--batch_size_gene", "512", 
+                "--num_eval_labels", "2000", 
+                "--nfake_per_label", "50", 
+                "--visualize_fake_images", 
+                "--dim_embed",
+                "128",
+                "--comp_FID",
+                "--samp_batch_size", "1000", 
+                "--FID_radius", "2", 
+                "--FID_num_centers", "1000"
+                // , 2>&1 | tee output_cGAN_150class.txt
+
+            ]
+        }
+    ]
+}
